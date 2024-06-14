@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    font-family: "Bigelow Rules", serif;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7DF1E !important;
+}
+
+h1 {
+    font-size: 10vh;
+    text-shadow: 250px 20px #3d3d3d; /* Sombra negra con desplazamiento de 2px */
+    
+}
+
+
+main {
+    min-height: 70vh;
+}
+
+
+.body-text {
+    font-family: 'Prompt', sans-serif;
+}
+
+/* Botón de búsqueda */
+.btn-amarillo {
+    background-color: #F7DF1E;
+    border-color: #F7DF1E; 
+    color: #000;              
+}
+
+.btn-amarillo:hover {
+    background-color: #e6cc1b;
+    border-color: #e6cc1b;
+}
+
+/* Reducir el tamaño de los pósters y ajustar el contenedor */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+    margin: 0 auto;
+    border: none;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-body {
+    width: 100%;
+    text-align: left;
+}
+
+footer {
+    height: 24vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer li {
+    margin: 0.5rem 0;
+}
+
+.btn-home {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-right: 25vh;
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    header {
+        height: 20vh;
+    }
+
+    h1 {
+        font-size: 6vh;
+    }
+
+    .card {
+        max-width: 70%;
+    }
+
+    footer {
+        height: 30vh;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        height: 20vh;
+    }
+
+    h1 {
+        font-size: 5vh;
+    }
+
+    .card {
+        max-width: 90%;
+    }
+
+    footer {
+        height: 35vh;
+    }
+
+
+    
+}
