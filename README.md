@@ -1,7 +1,7 @@
 # pwa_tp2
 **********************************************************
 ## *** TODO CINE ***
-"Todo Cine" es una aplicación web realizada como TP1 de la materia Aplicaciones Web Progresivas por Carlos García de Castro. La aplicación permite al usuario acceder a información de películas gracias al uso de la API OMDB (Open Movie Database). La información de las películas se almacena localmente en el navegador y permite hacer listas de películas favoritas.
+ESTO ES UN PRUEBA "Todo Cine" es una aplicación web realizada como TP1 de la materia Aplicaciones Web Progresivas por Carlos García de Castro. La aplicación permite al usuario acceder a información de películas gracias al uso de la API OMDB (Open Movie Database). La información de las películas se almacena localmente en el navegador y permite hacer listas de películas favoritas.
 
 La aplicación cuenta con 4 archivos principales: `index.html`, `app.js`, `favoritas.html` y `favoritas.js`.
 
