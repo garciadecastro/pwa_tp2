@@ -1,4 +1,6 @@
-importScripts('indexeddb.js');
+// proper initialization
+if ('function' === typeof importScripts) {
+  importScripts('indexeddb.js');
 
 const CACHE_NAME = 'todo-cine-cache-v1';
 const urlsToCache = [
@@ -70,3 +72,4 @@ self.addEventListener('sync', event => {
         event.waitUntil(syncFavoritesWithCache());
     }
 });
+}
