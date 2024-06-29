@@ -26,14 +26,26 @@ const apiKey = '525f3483';
 
 // Función para realizar la búsqueda
 btnBuscar.addEventListener('click', async () => {
-    try {
-        // URL de la API con mi llave y el título que se busca
-        const endPoint = `http://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
+    await realizarBusqueda();
+});
 
+// Controla el evento del formulario, nos permite enviar la búsqueda pulsando enter y mejorar la usabilidad
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    await realizarBusqueda();
+});
+
+btnFavoritas.addEventListener('click', () => {
+    window.location.href = 'favoritas.html';
+});
+
+const realizarBusqueda = async () => {
+    try {
+        const endPoint = `http://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
         const resp = await fetch(endPoint);
         const data = await resp.json();
         if (data.Response === "True") {
-            renderPelis(data.Search); //Array de películas
+            renderPelis(data.Search);
         } else {
             Swal.fire({
                 title: "No se encontraron resultados",
@@ -43,49 +55,13 @@ btnBuscar.addEventListener('click', async () => {
         }
     } catch (error) {
         console.error(error);
-        // Se recoge el error y se muestra usando una alerta de la biblioteca de JavaScript "SweetAlert2"
         Swal.fire({
             title: "Vaya",
             text: "Parece que ocurrió un error en el servidor",
             icon: "error"
         });
     }
-});
-
-// Controla el evento del formulario, nos permite enviar la búsqueda pulsando enter y mejorar la usabilidad
-form.addEventListener('submit', async (event) => {
-    // Como controlo el formulario de forma "manual", no quiero que tenga su comportamiento por defecto.
-    // al incluir el objeto event con su método "preventDefault" evito que la página se recargue
-    event.preventDefault();
-    const title = titulo.value;
-    const endPoint = `http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`;
-    
-    try {
-        const resp = await fetch(endPoint);
-        const data = await resp.json();
-        if (data.Response === "True") {
-            renderPelis(data.Search); // Convertir el resultado en un array de una sola película
-        } else {
-            Swal.fire({
-                title: "No se encontraron resultados",
-                text: "Intenta buscar otro título",
-                icon: "warning"
-            });
-        }
-    } catch (error) {
-        console.error(error);
-        // Se recoge el error y se muestra usando una alerta de la biblioteca de JavaScript "SweetAlert2" (otra vez :D )
-        Swal.fire({
-            title: "¡Oh! Terrible...",
-            text: "Ocurrió un error en el servidor!",
-            icon: "error"
-        });
-    }
-});
-
-btnFavoritas.addEventListener('click', () => {
-    window.location.href = 'favoritas.html';
-});
+};
 
 // Con esta función se renderizan las películas de la API
 const renderPelis = (peliculas) => {
@@ -170,7 +146,7 @@ const guardarPelicula = (title, year, poster) => {
 };
 
 
-//CACHÉ
+//Manejo del caché
 const version = 'cache-v1';
 const version2 = 'cache-v2';
 
