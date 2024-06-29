@@ -1,40 +1,72 @@
-//Archivos del cache
-const archivoCache = [
-  '/',
-  'index.html',
-  'favoritas.html',
-  'app.js',
-  'favoritas.js',
-  'style.css',
-  'favicon.ico',
-  'images/logopeli.png',
-  'images/nohaypeli.png'
+importScripts('indexeddb.js');
+
+const CACHE_NAME = 'todo-cine-cache-v1';
+const urlsToCache = [
+    '/',
+    '/index.html',
+    '/favoritas.html',
+    '/style.css',
+    '/app.js',
+    '/indexeddb.js',
+    '/favoritas.js',
+    '/imagenes/logopeli.png',
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+    'https://cdn.jsdelivr.net/npm/sweetalert2@11'
 ];
 
+// Instalación del Service Worker y almacenamiento de recursos en el caché
+self.addEventListener('install', event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                console.log('Abierto caché');
+                return cache.addAll(urlsToCache);
+            })
+    );
+});
 
-// Se ejecuta una sola vez
-self.addEventListener('install', () => {
-    console.log('SW: Install');
-  });
+// Activación del Service Worker y limpieza de cachés antiguos
+self.addEventListener('activate', event => {
+    const cacheWhitelist = [CACHE_NAME];
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
+});
 
-  self.addEventListener('install', evento => {
-    // Abro un caché
-    const cache = caches.open('mi-cache-1').then(cache => {
-      // Guarda los datos del caché necesario para que la app funcione sin conexión
-      return cache.addAll(['/', 'favoritas.html','index.html', 'style.css', 'favicon.ico']);
-    })
-    // Espera hasta que la promesa se resuelva
-    evento.waitUntil(cache)
-  })
-  
-  
-  // Cuando se instala se activa
-  self.addEventListener('activate', () => {
-    console.log('SW: Activado');
-  });
+// Interceptar las solicitudes de red y servir los archivos desde el caché
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                if (response) {
+                    return response; // Si el recurso está en caché, devuélvelo
+                }
+                return fetch(event.request); // Si no, realiza la solicitud de red
+            })
+    );
+});
 
-// Evento Fetch -> cada request al Servidor
-self.addEventListener('fetch', (evento) => {
-    const url = evento.request.url;
-    
-  });
+// Sincronizar la base de datos de favoritos con el caché
+const syncFavoritesWithCache = async () => {
+    const db = await openDatabase();
+    const favoritas = await obtenerPeliculas();
+    const cache = await caches.open(CACHE_NAME);
+
+    favoritas.forEach(pelicula => {
+        cache.put(pelicula.Title, new Response(JSON.stringify(pelicula), { headers: { 'Content-Type': 'application/json' } }));
+    });
+};
+
+self.addEventListener('sync', event => {
+    if (event.tag === 'sync-favorites') {
+        event.waitUntil(syncFavoritesWithCache());
+    }
+});

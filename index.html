@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script src="indexeddb.js"></script>
     <script src="app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 para tener mensajes de alerta copados -->
 
@@ -35,10 +36,7 @@
                     <input id="titulo" type="text" class="form-control" placeholder="¿Qué vamos a ver?">
                     <div class="d-flex justify-content-between mt-3">
                         <button type="submit" id="btnBuscar" class="btn btn-amarillo me-3">Buscar</button>
-                        <button type="button" id="btnFavoritas" class="btn btn-info ms-3">Mis Pelis</button>
-                        <button id="btnDelete" type="button" class="btn btn-danger ms-3">Eliminar el caché</button>
-                        <button id="btnSave" type="button" class="btn btn-success ms-3"> Guardar en el caché</button>
-                        <button id="btnRead" type="button" class="btn btn-info ms-3"> Leer del caché</button>
+                        <button type="button" id="btnFavoritas" class="btn btn-info ms-3">Favoritas</button>
                     </div>
                 </form>
             </div>
@@ -54,5 +52,6 @@
             <li>Año y cuatrimestre: 2º año y 3ª cuatrimestre</li>
         </ul>
     </footer>
+    <script src="sw.js" defer></script> 
 </body>
 </html>
