@@ -142,7 +142,7 @@ footer li {
 }
 
 #options{
-    visibility: none;
+    visibility: hidden;
 }
 
 .opciones {
