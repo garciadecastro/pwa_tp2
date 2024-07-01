@@ -196,7 +196,7 @@ footer li {
 }
 
 #options:checked ~ .openOptions .options2 {
-    transform: rotate(137deg);
+    transform: 500ms rotate(137deg);
     font-size: 25px;
 }
 
