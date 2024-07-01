@@ -138,6 +138,18 @@ footer li {
 
 
 /* Media Queries para Responsividad */
+
+@media (min-width: 769px) {
+    .footerInfoDiv{
+        p{
+            text-align: center;
+        };
+        ul{
+            text-align: center;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     header {
         height: 20vh;
