@@ -247,6 +247,11 @@ footer li {
     h1 {
         font-size: 5vh;
     }
+
+    .homeBtnContainer{
+        display: none;
+    }
+
     .card {
         max-width: 90%;
     }
