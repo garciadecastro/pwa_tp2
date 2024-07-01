@@ -45,6 +45,10 @@ main {
     color: white;
 }
 
+.btn-azul{
+    
+}
+
 /* Reducir el tamaño de los pósters y ajustar el contenedor */
 .card {
     display: flex;
