@@ -35,6 +35,8 @@ main {
 .homeBtnContainer{
     display: flex;
     justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 
@@ -100,6 +102,11 @@ main {
     background-color: #080A1B !important;
 }
 
+.deleteContainer{
+    display: flex;
+    justify-content: center;
+}
+
 footer {
     height: 24vh;
     display: flex;
@@ -120,7 +127,7 @@ footer li {
     font-family: 'Prompt', sans-serif;
     font-size: 1rem;
     padding: 0.5rem 1.5rem;
-    margin-right: 25vh;
+    background-color: #62BDD8 !important;
 }
 
 .footerInfoDiv{
