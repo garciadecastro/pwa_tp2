@@ -32,6 +32,11 @@ main {
     min-height: 70vh;
 }
 
+.homeBtnContainer{
+    display: flex;
+    justify-content: center;
+}
+
 
 .body-text {
     font-family: 'Prompt', sans-serif;
