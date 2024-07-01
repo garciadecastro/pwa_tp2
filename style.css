@@ -191,6 +191,8 @@ footer li {
     }
 
     .mobileBtnContainer{
+        display: flex;  
+        flex-direction: column;
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -207,6 +209,9 @@ footer li {
                 border-radius: 50%;
                 box-shadow: 0px 1px 10px;
                 transition: all 500ms ease;
+            }
+            img{
+                width: 2em;
             }
         }
         #options{
