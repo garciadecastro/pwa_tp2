@@ -141,6 +141,10 @@ footer li {
     display: none;
 }
 
+#options{
+    visibility: none;
+}
+
 .opciones {
     position: fixed;
     bottom: 80px;
@@ -152,7 +156,9 @@ footer li {
 }
 
 .opciones a, .openOptions {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     background-color: #D59E45;
     color: #080A1B;
@@ -185,6 +191,8 @@ footer li {
 .options2 {
     cursor: pointer;
     font-size: 23px;
+    display: flex;
+    height: 1.5em;
 }
 
 #options:checked ~ .openOptions .options2 {
@@ -193,7 +201,7 @@ footer li {
 }
 
 .openOptions img {
-    width: 2em;
+    width: 1.5em;
 }
 
 /* Media Queries para Responsividad */
