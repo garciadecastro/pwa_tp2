@@ -136,8 +136,61 @@ footer li {
     flex-direction: column;
 }
 
-.mobileBtnContainer{
+/* Estilos del btn pero fuera del query*/
+.mobileBtnContainer {
     display: none;
+}
+
+.opciones {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.opciones a, .openOptions {
+    display: block;
+    text-decoration: none;
+    background-color: #D59E45;
+    color: #080A1B;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.opciones a:hover {
+    background-color: #3D6E87;
+    color: white;
+}
+
+.opciones a {
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#options:checked ~ .opciones a {
+    opacity: 1;
+    visibility: visible;
+}
+
+.options2 {
+    cursor: pointer;
+    background-color: #62BDD8;
+    font-size: 23px;
+}
+
+#options:checked ~ .openOptions .options2 {
+    transform: rotate(137deg);
+    font-size: 25px;
+}
+
+.openOptions img {
+    width: 2em;
 }
 
 /* Media Queries para Responsividad */
@@ -190,61 +243,13 @@ footer li {
         height: 35vh;
     }
 
-    .mobileBtnContainer{
-        display: flex;  
+    /* Mostrar el btn dentro del query*/
+    .mobileBtnContainer {
+        display: flex;
         flex-direction: column;
         position: fixed;
         bottom: 20px;
         right: 20px;
-        .opciones{
-            a,.openOptions{
-                display: block;
-                text-decoration: none;
-                background-color: #D59E45;
-                color: #080A1B;
-                width: 55px;
-                height: 55px;
-                line-height: 55px;
-                text-align: center;
-                border-radius: 50%;
-                box-shadow: 0px 1px 10px;
-                transition: all 500ms ease;
-            };
-            a:hover{
-                background-color: #3D6E87;
-                color: white;
-            };
-            a{
-                margin-bottom: -15px;
-                opacity: 0;
-                visibility: hidden;
-            };
-            #options ~ .openOptions img{
-                margin-bottom: 10px;
-                opacity: 1;
-                visibility: visible;
-            };
-            .options2{
-                cursor: pointer;
-                background-color: #62BDD8;
-                font-size: 23px;
-            };
-            #options:checked ~ .openOptions .options2{
-                transform: rotate(137deg);
-                font-size: 25px;
-            }
-            img{
-                width: 2em;
-            }
-        }
-        #options{
-            display: none;
-        }
-    }
-
-    .openOptions{
-        img{
-            width: 2em;
-        }
+        z-index: 1000;
     }
 }
