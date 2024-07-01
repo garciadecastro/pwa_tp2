@@ -194,6 +194,21 @@ footer li {
         position: fixed;
         bottom: 20px;
         right: 20px;
+        .opciones{
+            a{
+                display: block;
+                text-decoration: none;
+                background-color: #D59E45;
+                color: #080A1B;
+                width: 55px;
+                height: 55px;
+                line-height: 55px;
+                text-align: center;
+                border-radius: 50%;
+                box-shadow: 0px 1px 10px;
+                transition: all 500ms ease;
+            }
+        }
         #options{
             display: none;
         }
