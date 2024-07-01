@@ -13,7 +13,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F7DF1E !important;
+    background-color: #D59E45 !important;
 }
 
 h1 {
@@ -34,14 +34,15 @@ main {
 
 /* Botón de búsqueda */
 .btn-amarillo {
-    background-color: #F7DF1E;
-    border-color: #F7DF1E; 
-    color: #000;              
+    background-color: #D59E45;
+    border-color: #D59E45; 
+    color: black;              
 }
 
 .btn-amarillo:hover {
-    background-color: #e6cc1b;
-    border-color: #e6cc1b;
+    background-color: #765725;
+    border-color: #765725;
+    color: white;
 }
 
 /* Reducir el tamaño de los pósters y ajustar el contenedor */
@@ -63,6 +64,10 @@ main {
 .card-body {
     width: 100%;
     text-align: left;
+}
+
+.bg-dark{
+    background-color: #080A1B !important;
 }
 
 footer {
@@ -94,15 +99,12 @@ footer li {
     header {
         height: 20vh;
     }
-
     h1 {
         font-size: 6vh;
     }
-
     .card {
         max-width: 70%;
     }
-
     footer {
         height: 30vh;
     }
@@ -112,19 +114,13 @@ footer li {
     header {
         height: 20vh;
     }
-
     h1 {
         font-size: 5vh;
     }
-
     .card {
         max-width: 90%;
     }
-
     footer {
         height: 35vh;
     }
-
-
-    
 }
