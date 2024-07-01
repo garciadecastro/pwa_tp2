@@ -179,6 +179,7 @@ footer li {
 #options:checked ~ .opciones a {
     opacity: 1;
     visibility: visible;
+    padding-bottom: 1em;
 }
 
 .options2 {
