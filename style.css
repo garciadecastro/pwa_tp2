@@ -219,7 +219,7 @@ footer li {
                 opacity: 0;
                 visibility: hidden;
             };
-            #options ~ .openOptions a{
+            #options ~ .openOptions img{
                 margin-bottom: 10px;
                 opacity: 1;
                 visibility: visible;
