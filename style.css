@@ -46,7 +46,16 @@ main {
 }
 
 .btn-azul{
-    background-color: white !important;
+    background-color: #62BDD8;
+    border-color: #62BDD8;
+    color: black;
+}
+
+.btn-azul:hover{
+    background-color: #3D6E87;
+    border-color: #3D6E87;
+    color: white;
+
 }
 
 /* Reducir el tamaño de los pósters y ajustar el contenedor */
