@@ -163,6 +163,14 @@ footer li {
     footer {
         height: 30vh;
     }
+    .footerInfoDiv{
+        p{
+            text-align: center;
+        };
+        ul{
+            text-align: center;
+        }
+    }
 }
 
 @media (max-width: 576px) {
