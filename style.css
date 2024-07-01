@@ -136,6 +136,9 @@ footer li {
     flex-direction: column;
 }
 
+.mobileBtnContainer{
+    display: none;
+}
 
 /* Media Queries para Responsividad */
 
@@ -185,5 +188,15 @@ footer li {
     }
     footer {
         height: 35vh;
+    }
+
+    .mobileBtnContainer{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        #options{
+            display: none;
+        }
+
     }
 }
