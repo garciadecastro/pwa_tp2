@@ -58,6 +58,11 @@ main {
 
 }
 
+#mainContainer{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 /* Reducir el tamaño de los pósters y ajustar el contenedor */
 .card {
     display: flex;
