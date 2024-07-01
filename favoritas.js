@@ -28,7 +28,7 @@ const mostrarFavoritas = async () => {
     favoritas.forEach((pelicula, index) => {
         const poster = pelicula.Poster !== "N/A" ? pelicula.Poster : "/imagenes/nohaypeli.png";
         divFavoritas.innerHTML += `
-            <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex align-items-center">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card">
                     <img src="${poster}" class="card-img-top" alt="${pelicula.Title}">
                     <div class="card-body">
