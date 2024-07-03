@@ -1,6 +1,6 @@
 // proper initialization
 if ('function' === typeof importScripts) {
-  importScripts('indexeddb.js');
+    importScripts('indexeddb.js');
 
 const CACHE_NAME = 'todo-cine-cache-v1';
 const urlsToCache = [
