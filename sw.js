@@ -1,6 +1,6 @@
 // proper initialization
 if ('function' === typeof importScripts) {
-  importScripts('indexeddb.js');
+    importScripts('indexeddb.js');
 
 const CACHE_NAME = 'todo-cine-cache-v1';
 const urlsToCache = [
@@ -12,6 +12,8 @@ const urlsToCache = [
     '/indexeddb.js',
     '/favoritas.js',
     '/imagenes/logopeli.png',
+    '/imagenes/todoCinelogoNegativo.png',
+    '/icons',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/sweetalert2@11'
 ];

@@ -1,5 +1,8 @@
 let db; // Variable global que almacena la instancia de la base de datos
 
+const CACHE_NAME = 'my-cache-name';
+
+
 const openDatabase = () => {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open('FavoritasDB', 1);

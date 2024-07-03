@@ -2,15 +2,55 @@
     "name": "Todo Cine",
     "short_name": "Cine",
     "description": "Aplicación para buscar y guardar películas favoritas.",
-    "start_url": "/index.html",
-    "display": "standalone",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "orientation" : "portrait",
+    "lang": "es",
+    "form_factor": "wide",
     "background_color": "#ffffff",
-    "theme_color": "#f7df1e",
+    "theme_color": "#D59E45",
     "icons": [
       {
-        "src": "icons/favicon.ico",
-        "sizes": "48x48 72x72 96x96 128x128 256x256",
-        "type": "image/x-icon"
+        "src": "icons/logopeli-48x56.png",
+        "sizes": "48x56",
+        "type": "image/png",
+        "purpose" : "any"
+      },
+      {
+        "src": "icons/logopeli-72x85.png",
+        "sizes": "72x85",
+        "type": "image/png",
+        "purpose" : "any"
+      },
+      {
+        "src": "icons/logopeli-78x92.png",
+        "sizes": "78x92",
+        "type": "image/png",
+        "purpose" : "any"
+      },
+      {
+        "src": "icons/logopeli-128x150.png",
+        "sizes": "128x150",
+        "type": "image/png",
+        "purpose" : "any"
+      },
+      {
+        "src": "icons/logopeli-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "icons/logopeli-144x169.png",
+        "sizes": "144x169",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "icons/logopeli-256x301.png",
+        "sizes": "256x301",
+        "type": "image/png",
+        "purpose" : "any"
       }
     ]
   }

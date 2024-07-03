@@ -12,27 +12,52 @@
     <script src="favoritas.js" defer></script>
 </head>
 <body>
-    <header class="d-flex justify-content-between align-items-center p-3">
+    <header class="d-flex justify-content-center align-items-center p-3">
         <div class="d-flex align-items-center">
-            <img src="imagenes/logopeli.png" alt="Logo de la web" style="height: 50px; margin-right: 10px;">
-            <h1 class="mb-0">Mis Pelis</h1>
+            <a href="index.html" class="linkIcon">
+                <img src="imagenes/logopeli.png" alt="Logo de la web" class="logoFavoritas">
+                <img src="imagenes/todoCinelogoNegativo.png" class="todoCineLogo" alt="Logotipo de Todo Cine">
+            </a>
         </div>
-        <a href="index.html" class="btn btn-light btn-home">Home</a>
     </header>
     <main>
+        <div class="homeBtnContainer">
+            <a href="index.html" class="btn btn-light btn-home">Home</a>
+        </div>
         <div class="container">
             <div id="favoritas" class="row mt-4"></div>
-            <button id="btnBorrar" class="btn btn-danger mt-4">Eliminar colección</button>
+            <div class="deleteContainer">
+                <button id="btnBorrar" class="btn btn-danger">Eliminar colección</button>
+            </div>
+        </div>
+        <div class="mobileBtnContainer">
+            <input type="checkbox" id="options">
+            <div class="opciones">
+                <a href="index.html">
+                    <img src="imagenes/house-solid-_1_ 1.png" alt="">
+                </a>
+                <a href="favoritas.html">
+                    <img src="imagenes/star-solid 1.png" alt="">
+                </a>
+            </div>
+            <div class="openOptions">
+                <label for="options" class="options2">
+                    <img src="imagenes/plus-solid-_1_ 1.png" alt="">
+                </label>
+            </div>
         </div>
     </main>
     <footer class="bg-dark text-white">
-        <ul>
-            <li>Comisión: DWT3AP</li>
-            <li>Profesor: Jonathan Cruz</li>
-            <li>Alumno: Carlos García de Castro</li>
-            <li>Materia: Aplicaciones Web Progresivas</li>
-            <li>Año y cuatrimestre: 2º año y 3ª cuatrimestre</li>
-        </ul>
+        <div class="footerInfoDiv">
+            <p>Copyright © 2024 Todo Cine</p>
+            <ul>
+                <li>Comisión: DWT3AP</li>
+                <li>Profesor: Jonathan Cruz</li>
+                <li>Alumno: Carlos García de Castro & Alvaro Manuel Avendaño</li>
+                <li>Materia: Aplicaciones Web Progresivas</li>
+                <li>Año y cuatrimestre: 2º año y 3ª cuatrimestre</li>
+            </ul>
+        </div>
     </footer>
     <script src="sw.js" defer></script> 
 </body>
