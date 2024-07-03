@@ -29,6 +29,11 @@
         "type": "images/png"
       },
       {
+        "src": "icons/logopeli-122x143.png",
+        "sizes": "144x144",
+        "type": "images/png"
+      },
+      {
         "src": "icons/logopeli-218x256.png",
         "sizes": "218x256",
         "type": "images/png"
