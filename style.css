@@ -100,6 +100,7 @@ main {
 
 .bg-dark{
     background-color: #080A1B !important;
+    height: 20em;
 }
 
 .deleteContainer{
@@ -202,6 +203,16 @@ footer li {
 
 .openOptions img {
     width: 1.5em;
+}
+
+#logoFavoritas{
+    height: 50px;
+    margin-right: 10px;
+}
+
+.linkIcon{
+    text-decoration: none;
+    color: none;
 }
 
 /* Media Queries para Responsividad */
