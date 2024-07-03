@@ -2,10 +2,10 @@
     "name": "Todo Cine",
     "short_name": "Cine",
     "description": "Aplicación para buscar y guardar películas favoritas.",
-    "start_url": "/index.html",
-    "display": "standalone",
+    "start_url": "index.html",
+    "display": "fullscreen",
     "background_color": "#ffffff",
-    "theme_color": "#f7df1e",
+    "theme_color": "#D59E45",
     "icons": [
       {
         "src": "icons/favicon.ico",
