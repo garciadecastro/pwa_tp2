@@ -13,7 +13,12 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F7DF1E !important;
+    background-color: #D59E45 !important;
+}
+
+.todoCineLogo{
+    width: 15em;
+    margin-left: 1em;
 }
 
 h1 {
@@ -27,6 +32,13 @@ main {
     min-height: 70vh;
 }
 
+.homeBtnContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 
 .body-text {
     font-family: 'Prompt', sans-serif;
@@ -34,14 +46,33 @@ main {
 
 /* Botón de búsqueda */
 .btn-amarillo {
-    background-color: #F7DF1E;
-    border-color: #F7DF1E; 
-    color: #000;              
+    background-color: #D59E45;
+    border-color: #D59E45; 
+    color: black;              
 }
 
 .btn-amarillo:hover {
-    background-color: #e6cc1b;
-    border-color: #e6cc1b;
+    background-color: #765725;
+    border-color: #765725;
+    color: white;
+}
+
+.btn-azul{
+    background-color: #62BDD8;
+    border-color: #62BDD8;
+    color: black;
+}
+
+.btn-azul:hover{
+    background-color: #3D6E87;
+    border-color: #3D6E87;
+    color: white;
+
+}
+
+#mainContainer{
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 /* Reducir el tamaño de los pósters y ajustar el contenedor */
@@ -61,8 +92,21 @@ main {
 }
 
 .card-body {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    text-align: left;
+    text-align: center;
+}
+
+.bg-dark{
+    background-color: #080A1B !important;
+    height: 20em;
+}
+
+.deleteContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
 }
 
 footer {
@@ -85,26 +129,138 @@ footer li {
     font-family: 'Prompt', sans-serif;
     font-size: 1rem;
     padding: 0.5rem 1.5rem;
-    margin-right: 25vh;
+    background-color: #62BDD8 !important;
 }
 
+.footerInfoDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del btn pero fuera del query*/
+.mobileBtnContainer {
+    display: none;
+}
+
+#options{
+    visibility: hidden;
+}
+
+.opciones {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    img{
+        width: 2em;
+    }
+}
+
+.opciones a, .openOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #D59E45;
+    color: #080A1B;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.opciones a:hover {
+    background-color: #3D6E87;
+    color: white;
+}
+
+.opciones a {
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#options:checked ~ .opciones a {
+    opacity: 1;
+    visibility: visible;
+    margin-bottom: 1em;
+}
+
+.options2 {
+    cursor: pointer;
+    font-size: 23px;
+    display: flex;
+    height: 1.5em;
+}
+
+#options:checked ~ .openOptions .options2 {
+    transform: 500ms rotate(137deg);
+    font-size: 25px;
+}
+
+.openOptions img {
+    width: 1.5em;
+}
+
+.logoFavoritas{
+    height: 50px;
+    margin-right: 10px;
+}
+
+.linkIcon{
+    text-decoration: none;
+    color: none;
+}
 
 /* Media Queries para Responsividad */
+
+@media (min-width: 769px) {
+    .footerInfoDiv{
+        p{
+            text-align: center;
+        };
+        ul{
+            text-align: center;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     header {
         height: 20vh;
     }
-
     h1 {
         font-size: 6vh;
     }
-
     .card {
         max-width: 70%;
     }
-
     footer {
         height: 30vh;
+    }
+    .footerInfoDiv{
+        p{
+            text-align: center;
+        };
+        ul{
+            text-align: center;
+        }
+    }
+
+    .homeBtnContainer{
+        display: none;
+    }
+
+    .mobileBtnContainer {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
     }
 }
 
@@ -112,19 +268,28 @@ footer li {
     header {
         height: 20vh;
     }
-
     h1 {
         font-size: 5vh;
+    }
+
+    .homeBtnContainer{
+        display: none;
     }
 
     .card {
         max-width: 90%;
     }
-
     footer {
         height: 35vh;
     }
 
-
-    
+    /* Mostrar el btn dentro del query*/
+    .mobileBtnContainer {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
 }
