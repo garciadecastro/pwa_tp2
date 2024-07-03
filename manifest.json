@@ -5,37 +5,39 @@
     "start_url": "index.html",
     "display": "fullscreen",
     "orientation" : "portrait",
+    "lang": "es",
+    "form_factor": "wide",
     "background_color": "#ffffff",
     "theme_color": "#D59E45",
     "icons": [
       {
-        "src": "icons/logopeli-41x48.png",
-        "sizes": "48x48",
+        "src": "icons/logopeli-48x56.png",
+        "sizes": "48x56",
         "type": "images/png"
       },
       {
-        "src": "icons/logopeli-61x72.png",
-        "sizes": "72x72",
+        "src": "icons/logopeli-72x85.png",
+        "sizes": "72x85",
         "type": "images/png"
       },
       {
-        "src": "icons/logopeli-82x96.png",
-        "sizes": "96x96",
+        "src": "icons/logopeli-78x92.png",
+        "sizes": "78x92",
         "type": "images/png"
       },
       {
-        "src": "icons/logopeli-109x128.png",
-        "sizes": "128x128",
+        "src": "icons/logopeli-128x150.png",
+        "sizes": "128x150",
         "type": "images/png"
       },
       {
-        "src": "icons/logopeli-144x165.png",
-        "sizes": "144x144",
+        "src": "icons/logopeli-144x169.png",
+        "sizes": "144x169",
         "type": "images/png"
       },
       {
-        "src": "icons/logopeli-218x256.png",
-        "sizes": "218x256",
+        "src": "icons/logopeli-256x301.png",
+        "sizes": "256x301",
         "type": "images/png"
       }
     ]
