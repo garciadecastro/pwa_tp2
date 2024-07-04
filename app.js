@@ -93,9 +93,11 @@ const renderPelis = (peliculas) => {
 
             // Se crear la constante poster la cual tendra el poster que nos provee la api
             const poster = pelicula.Poster !== "N/A" ? pelicula.Poster : "imagenes/nohaypeli.png";
+            // Se crea una constante llamada peliculaElemento la cual creará un div y se le agrega clases de bootstrap
             const peliculaElemento = document.createElement('div');
             peliculaElemento.classList.add('col-md-6', 'mb-3');
 
+            //innerHTML desde .js para crearel card que contendrá los datos
             peliculaElemento.innerHTML = `
                 <div class="card">
                     <img src="${poster}" class="card-img-top" alt="${pelicula.Title}">
@@ -106,9 +108,10 @@ const renderPelis = (peliculas) => {
                     </div>
                 </div>
             `;
-
+            //append para que se muestre
             row.appendChild(peliculaElemento);
         });
+    // En caso de que no haya una pelicula, se mostrá con las siguientes etiquetas y estilos
     } else {
         const mensaje = document.createElement('div');
         mensaje.classList.add('col');
@@ -117,19 +120,26 @@ const renderPelis = (peliculas) => {
     }
 };
 
-// Función para guardar la película en IndexedDB
+// Función para guardar la película en IndexedDB, ya que es asincrona usamos try catch.
 const guardarPelicula = async (title, year, poster) => {
     const pelicula = {
         Title: title,
         Year: year,
         Poster: poster
     };
-
+    
+    // Con el try, esperamos a que se abra la database en primer lugar
     try {
         await openDatabase();
+        // Creamos una constante favoritas para guardar las peliculas favoritas y esperamos
         const favoritas = await obtenerPeliculas();
+
+        // Una vez se haya completado la espera del await, a nuestra constante peliculaExistente
+        // con el metodo.find encontramos el titulo y el año. Esto es para que no se guarde una peli
+        // por segunda vez
         const peliculaExistente = favoritas.find(item => item.Title === title && item.Year === year);
 
+        //Si la pelicula ya esta guardada se le informa al usario mediante una alerta
         if (peliculaExistente) {
             Swal.fire({
                 title: "¡Otra vez!",
@@ -138,14 +148,18 @@ const guardarPelicula = async (title, year, poster) => {
             });
             return;
         }
-
+        // En caso de que no este repetida, con un await se agrega la pelicula y se le informa al usuario
         await agregarPelicula(pelicula);
         Swal.fire({
             title: "Guardada",
             text: "Otra película más en la colección.",
             icon: "success"
         });
+
+        // Se hace un console log adicional para mostrar que efectivamente se guardo.
         console.log('Película guardada en IndexedDB:', pelicula);
+    
+    //En caso de que hay un error, se le informa al usuario mediante una alerta y por consola
     } catch (error) {
         Swal.fire({
             title: "Error",
