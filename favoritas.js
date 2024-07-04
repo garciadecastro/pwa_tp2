@@ -1,7 +1,10 @@
+// Al momento de cargar el DOM, de manera asincrona voy a esperar a que se abra la base de datos
+// y voy a mostrar las peliculas favoritas. Todo eso lo hago llamando a las 2 funcoines
 document.addEventListener('DOMContentLoaded', async () => {
     await openDatabase();
     mostrarFavoritas();
 
+    //Para hacer que mi boton borre las peliculas 
     const btnBorrar = document.getElementById('btnBorrar');
     btnBorrar.addEventListener('click', async () => {
         await borrarFavoritas();
