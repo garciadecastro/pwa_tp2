@@ -36,7 +36,9 @@ btnFavoritas.addEventListener('click', () => {
 
 const realizarBusqueda = async () => {
     try {
-        const endPoint = `http://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
+        // const endPoint = `http://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
+        const endPoint = `https://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
+
         const resp = await fetch(endPoint);
         const data = await resp.json();
         if (data.Response === "True") {
