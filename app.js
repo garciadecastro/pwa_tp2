@@ -1,5 +1,5 @@
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
+    navigator.serviceWorker.register('/pwa_tp2/sw.js')
         .then(registration => {
             console.log('Se ha registrado el Service Worker con éxito:', registration);
         })
@@ -31,16 +31,16 @@ form.addEventListener('submit', async (event) => {
 });
 
 btnFavoritas.addEventListener('click', () => {
-    window.location.href = 'favoritas.html';
+    window.location.href = '/pwa_tp2/favoritas.html';
 });
 
 const realizarBusqueda = async () => {
     try {
-        // const endPoint = `http://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
+        console.log(`Realizando búsqueda para: ${titulo.value}`);
         const endPoint = `https://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
-
         const resp = await fetch(endPoint);
         const data = await resp.json();
+        console.log('Respuesta de la API:', data);
         if (data.Response === "True") {
             renderPelis(data.Search);
         } else {
@@ -51,7 +51,7 @@ const realizarBusqueda = async () => {
             });
         }
     } catch (error) {
-        console.error(error);
+        console.error('Error en realizarBusqueda:', error);
         Swal.fire({
             title: "Vaya",
             text: "Parece que ocurrió un error en el servidor",
