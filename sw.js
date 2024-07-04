@@ -40,16 +40,13 @@ self.addEventListener('fetch', event => {
                         if (!response || response.status !== 200 || response.type !== 'basic') {
                             return response;
                         }
-
                         // Clonamos nuestro response ya que el buscador que usemos va a consumirla,
                         // por ende necesitaremos clonarla asi tenemos 2, una para consumo y otra para que esté
                         var responseToCache = response.clone();
-
                         caches.open(CACHE_NAME)
                             .then(cache => {
                                 cache.put(event.request, responseToCache);
                             });
-
                         return response;
                     }
                 );
@@ -59,7 +56,6 @@ self.addEventListener('fetch', event => {
 
 self.addEventListener('activate', event => {
     var cacheWhitelist = [CACHE_NAME];
-
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(

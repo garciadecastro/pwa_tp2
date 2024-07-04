@@ -1,6 +1,6 @@
 let db; // Variable global que almacena la instancia de la base de datos
 
-const CACHE_NAME = 'my-cache-name';
+const CACHE_NAME = 'my-cache-name'; // Creamos una constante llamada CACHE_NAME para que contenga el nombre del cache
 
 const openDatabase = () => {
     return new Promise((resolve, reject) => {

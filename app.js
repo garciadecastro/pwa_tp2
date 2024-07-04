@@ -1,3 +1,5 @@
+// Si el SW esta en el navegador entonces se registra en el. Una vez registrado por consola podran salir 2 tipos de informacion
+// Si el SW se ha registrado, saldrá el mensaje de exito, caso contrario saldra un mensaje de error informando lo mismo.
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/pwa_tp2/sw.js')
         .then(registration => {
@@ -9,7 +11,10 @@ if ('serviceWorker' in navigator) {
 } else {
     alert('Tu navegador no soporta esta Web APP');
 }
+//Por un tema de hacerle al usuario mas facil su experiencia web, en caso de que su ordenador no soporte
+//la web app, habrá un alert indicando lo mismo.
 
+//Creamos las constantes y con un querySelector buscamos los ID's de cada elemento del html
 const btnBuscar = document.querySelector('#btnBuscar');
 const btnFavoritas = document.querySelector('#btnFavoritas');
 const resultados = document.querySelector('#resultados');
@@ -34,13 +39,24 @@ btnFavoritas.addEventListener('click', () => {
     window.location.href = '/pwa_tp2/favoritas.html';
 });
 
+// Para buscar las peliculas, creamos una función asincrona la cual se encargará de ello. Siendo que es
+// asincrona usamos un try catch para decirle que queremos que intente que haga, y si no lo hace, que es lo 
+// que tiene que hacer con el error que salga
 const realizarBusqueda = async () => {
     try {
+        // Mediante consola informamos al usuario que se está buscando la pelicula que el quiere.
         console.log(`Realizando búsqueda para: ${titulo.value}`);
+        // Creamos una constante llamada endPoint la cual tiene la URL en donde deberia de buscar la pelicula con
+        // su apiKey el titulo.value, o sea, el titulo provisto por el user
         const endPoint = `https://www.omdbapi.com/?apikey=${apiKey}&s=${titulo.value}`;
+        // Creamos una constante llamada resp la cual es la response de la api. Esperamos a que se haga un fetch a esa
+        // api, por lo que usaremos un await
         const resp = await fetch(endPoint);
+        // Creamos otra constante llamada data la cual haremos que esta response se vuelva un archivo .JSON
         const data = await resp.json();
+        // Hacemos un log para el usuario con la respuesta de la api
         console.log('Respuesta de la API:', data);
+        // Si la data.Response da como resultado True, se llama a la funcoin renderPelis con el parametro de data.Search
         if (data.Response === "True") {
             renderPelis(data.Search);
         } else {
