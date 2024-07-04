@@ -56,17 +56,17 @@ const realizarBusqueda = async () => {
         const data = await resp.json();
         // Hacemos un log para el usuario con la respuesta de la api
         console.log('Respuesta de la API:', data);
-        // Si la data.Response da como resultado True, se llama a la funcoin renderPelis con el parametro de data.Search
+        // Si la data.Response da como resultado True, se llama a la funcion renderPelis con el parametro de data.Search
         if (data.Response === "True") {
             renderPelis(data.Search);
-        } else {
+        } else { // En caso de que data.response no de true, mostrará una alerta personalizada que no se ha podido encontrar resultados de busqueda
             Swal.fire({
                 title: "No se encontraron resultados",
                 text: "Intenta buscar otro título",
                 icon: "warning"
             });
         }
-    } catch (error) {
+    } catch (error) { //Si hay un error, tambien se informara al usuario mediante una alerta personalizada
         console.error('Error en realizarBusqueda:', error);
         Swal.fire({
             title: "Vaya",
@@ -80,8 +80,10 @@ const realizarBusqueda = async () => {
 const renderPelis = (peliculas) => {
     resultados.innerHTML = '';
 
+    // Si hay aunque sea 1 pelicula, se creará un row que servirá para los estilos.
     if (peliculas.length > 0) {
         let row;
+        // Se hace un forEach para recorrer las peliculas
         peliculas.forEach((pelicula, index) => {
             if (index % 2 === 0) {
                 row = document.createElement('div');
@@ -89,6 +91,7 @@ const renderPelis = (peliculas) => {
                 resultados.appendChild(row);
             }
 
+            // Se crear la constante poster la cual tendra el poster que nos provee la api
             const poster = pelicula.Poster !== "N/A" ? pelicula.Poster : "imagenes/nohaypeli.png";
             const peliculaElemento = document.createElement('div');
             peliculaElemento.classList.add('col-md-6', 'mb-3');

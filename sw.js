@@ -10,6 +10,9 @@ const urlsToCache = [
     '/app.js',
     '/indexeddb.js',
     '/imagenes/logopeli.png',
+    '/imagenes/house-solid.png',
+    '/imagenes/plus-solid.png',
+    '/imagenes/star-solid.png',
     '/imagenes/todoCinelogoNegativo.png',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/sweetalert2@11'
