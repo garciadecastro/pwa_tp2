@@ -1,4 +1,8 @@
+//Creacion de constante para guardar el cache
 const CACHE_NAME = 'my-cache-v1';
+
+//Ponemos todo lo que queremos cachear, desde los archivos base como los index y .js hasta imagenes
+//importantes como el logo y nuestros frameworks y librerias
 const urlsToCache = [
     '/',
     '/index.html',
@@ -11,6 +15,7 @@ const urlsToCache = [
     'https://cdn.jsdelivr.net/npm/sweetalert2@11'
 ];
 
+//Instalamos el service worker
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -31,15 +36,13 @@ self.addEventListener('fetch', event => {
                 }
                 return fetch(event.request).then(
                     response => {
-                        // Check if we received a valid response
+                        // Nos fijamos bien si obtuvimos una response valida
                         if (!response || response.status !== 200 || response.type !== 'basic') {
                             return response;
                         }
 
-                        // IMPORTANT: Clone the response. A response is a stream
-                        // and because we want the browser to consume the response
-                        // as well as the cache consuming the response, we need
-                        // to clone it so we have two streams.
+                        // Clonamos nuestro response ya que el buscador que usemos va a consumirla,
+                        // por ende necesitaremos clonarla asi tenemos 2, una para consumo y otra para que esté
                         var responseToCache = response.clone();
 
                         caches.open(CACHE_NAME)
